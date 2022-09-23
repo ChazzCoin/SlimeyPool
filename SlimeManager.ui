@@ -1,0 +1,432 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>SlimeManager</class>
+ <widget class="QDialog" name="SlimeManager">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>1108</width>
+    <height>619</height>
+   </rect>
+  </property>
+  <property name="sizePolicy">
+   <sizepolicy hsizetype="Expanding" vsizetype="Expanding">
+    <horstretch>0</horstretch>
+    <verstretch>0</verstretch>
+   </sizepolicy>
+  </property>
+  <property name="windowTitle">
+   <string>SlimeManager</string>
+  </property>
+  <widget class="QTabWidget" name="SlimeManager_2">
+   <property name="geometry">
+    <rect>
+     <x>10</x>
+     <y>0</y>
+     <width>1091</width>
+     <height>611</height>
+    </rect>
+   </property>
+   <property name="currentIndex">
+    <number>1</number>
+   </property>
+   <widget class="QWidget" name="SlimeManager">
+    <attribute name="title">
+     <string>SlimeManager</string>
+    </attribute>
+    <widget class="QFrame" name="frame">
+     <property name="geometry">
+      <rect>
+       <x>20</x>
+       <y>10</y>
+       <width>1061</width>
+       <height>581</height>
+      </rect>
+     </property>
+     <property name="sizePolicy">
+      <sizepolicy hsizetype="Maximum" vsizetype="Maximum">
+       <horstretch>0</horstretch>
+       <verstretch>0</verstretch>
+      </sizepolicy>
+     </property>
+     <property name="frameShape">
+      <enum>QFrame::StyledPanel</enum>
+     </property>
+     <property name="frameShadow">
+      <enum>QFrame::Raised</enum>
+     </property>
+     <widget class="QPushButton" name="btnAddUrlToQueue">
+      <property name="geometry">
+       <rect>
+        <x>90</x>
+        <y>60</y>
+        <width>121</width>
+        <height>32</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string>Download</string>
+      </property>
+     </widget>
+     <widget class="QLabel" name="label_5">
+      <property name="geometry">
+       <rect>
+        <x>740</x>
+        <y>10</y>
+        <width>121</width>
+        <height>16</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string>Mixxx Folder</string>
+      </property>
+     </widget>
+     <widget class="QLabel" name="label">
+      <property name="geometry">
+       <rect>
+        <x>10</x>
+        <y>20</y>
+        <width>60</width>
+        <height>16</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string>Add URL</string>
+      </property>
+     </widget>
+     <widget class="QLineEdit" name="editAddUrl">
+      <property name="geometry">
+       <rect>
+        <x>90</x>
+        <y>10</y>
+        <width>631</width>
+        <height>51</height>
+       </rect>
+      </property>
+     </widget>
+     <widget class="QLineEdit" name="editFinalDirectory">
+      <property name="geometry">
+       <rect>
+        <x>740</x>
+        <y>30</y>
+        <width>261</width>
+        <height>31</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string>/Users/chazzromeo/ChazzCoin/mixxx</string>
+      </property>
+     </widget>
+     <widget class="QListWidget" name="listUrlInQueue">
+      <property name="geometry">
+       <rect>
+        <x>10</x>
+        <y>130</y>
+        <width>271</width>
+        <height>421</height>
+       </rect>
+      </property>
+     </widget>
+     <widget class="QListWidget" name="listFinalDirectory">
+      <property name="geometry">
+       <rect>
+        <x>660</x>
+        <y>130</y>
+        <width>381</width>
+        <height>421</height>
+       </rect>
+      </property>
+     </widget>
+     <widget class="Line" name="line">
+      <property name="geometry">
+       <rect>
+        <x>290</x>
+        <y>310</y>
+        <width>41</width>
+        <height>16</height>
+       </rect>
+      </property>
+      <property name="orientation">
+       <enum>Qt::Horizontal</enum>
+      </property>
+     </widget>
+     <widget class="QListWidget" name="listUrlDownloaded">
+      <property name="geometry">
+       <rect>
+        <x>340</x>
+        <y>130</y>
+        <width>261</width>
+        <height>421</height>
+       </rect>
+      </property>
+     </widget>
+     <widget class="QPushButton" name="btnRefreshFolders">
+      <property name="geometry">
+       <rect>
+        <x>910</x>
+        <y>100</y>
+        <width>131</width>
+        <height>32</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string>Refresh Folders</string>
+      </property>
+     </widget>
+     <widget class="QLabel" name="label_4">
+      <property name="geometry">
+       <rect>
+        <x>660</x>
+        <y>110</y>
+        <width>171</width>
+        <height>16</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string>In Mixxx Folder</string>
+      </property>
+     </widget>
+     <widget class="Line" name="line_2">
+      <property name="geometry">
+       <rect>
+        <x>610</x>
+        <y>310</y>
+        <width>41</width>
+        <height>16</height>
+       </rect>
+      </property>
+      <property name="orientation">
+       <enum>Qt::Horizontal</enum>
+      </property>
+     </widget>
+     <widget class="QLabel" name="label_3">
+      <property name="geometry">
+       <rect>
+        <x>340</x>
+        <y>110</y>
+        <width>171</width>
+        <height>16</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string>Downloaded / Complete</string>
+      </property>
+     </widget>
+     <widget class="QLabel" name="label_2">
+      <property name="geometry">
+       <rect>
+        <x>10</x>
+        <y>110</y>
+        <width>60</width>
+        <height>16</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string>In-Queue</string>
+      </property>
+     </widget>
+     <widget class="QPushButton" name="btnMoveToFinalDirectory">
+      <property name="geometry">
+       <rect>
+        <x>490</x>
+        <y>100</y>
+        <width>121</width>
+        <height>32</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string>Move to Mixxx</string>
+      </property>
+     </widget>
+    </widget>
+   </widget>
+   <widget class="QWidget" name="Converter">
+    <attribute name="title">
+     <string>File Converter</string>
+    </attribute>
+    <widget class="QLabel" name="label_6">
+     <property name="geometry">
+      <rect>
+       <x>20</x>
+       <y>10</y>
+       <width>121</width>
+       <height>16</height>
+      </rect>
+     </property>
+     <property name="text">
+      <string>Root Directory</string>
+     </property>
+    </widget>
+    <widget class="QListWidget" name="listConvertExploreFiles">
+     <property name="geometry">
+      <rect>
+       <x>20</x>
+       <y>140</y>
+       <width>381</width>
+       <height>421</height>
+      </rect>
+     </property>
+    </widget>
+    <widget class="QLabel" name="label_7">
+     <property name="geometry">
+      <rect>
+       <x>20</x>
+       <y>120</y>
+       <width>171</width>
+       <height>16</height>
+      </rect>
+     </property>
+     <property name="text">
+      <string>File Directory</string>
+     </property>
+    </widget>
+    <widget class="QLineEdit" name="editConvertRootDirectory">
+     <property name="geometry">
+      <rect>
+       <x>20</x>
+       <y>30</y>
+       <width>261</width>
+       <height>31</height>
+      </rect>
+     </property>
+     <property name="text">
+      <string>/</string>
+     </property>
+    </widget>
+    <widget class="QPushButton" name="btnConvertListBack">
+     <property name="geometry">
+      <rect>
+       <x>310</x>
+       <y>110</y>
+       <width>91</width>
+       <height>32</height>
+      </rect>
+     </property>
+     <property name="text">
+      <string>Back</string>
+     </property>
+    </widget>
+    <widget class="QGroupBox" name="groupConverter">
+     <property name="geometry">
+      <rect>
+       <x>410</x>
+       <y>140</y>
+       <width>361</width>
+       <height>421</height>
+      </rect>
+     </property>
+     <property name="title">
+      <string>Converter</string>
+     </property>
+     <widget class="QCheckBox" name="toggleConvertMP3">
+      <property name="geometry">
+       <rect>
+        <x>20</x>
+        <y>130</y>
+        <width>111</width>
+        <height>20</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string>MP3 (Audio)</string>
+      </property>
+     </widget>
+     <widget class="QCheckBox" name="toggleConvertMP4">
+      <property name="geometry">
+       <rect>
+        <x>20</x>
+        <y>160</y>
+        <width>101</width>
+        <height>20</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string>MP4 (Video)</string>
+      </property>
+     </widget>
+     <widget class="QLabel" name="lblInputPath">
+      <property name="geometry">
+       <rect>
+        <x>30</x>
+        <y>60</y>
+        <width>311</width>
+        <height>20</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string>/path/to/file/</string>
+      </property>
+     </widget>
+     <widget class="QLabel" name="label_9">
+      <property name="geometry">
+       <rect>
+        <x>10</x>
+        <y>30</y>
+        <width>101</width>
+        <height>20</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string>File To Convert:</string>
+      </property>
+     </widget>
+     <widget class="QPushButton" name="btnConvert">
+      <property name="geometry">
+       <rect>
+        <x>130</x>
+        <y>380</y>
+        <width>113</width>
+        <height>32</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string>Convert</string>
+      </property>
+     </widget>
+     <widget class="QLabel" name="label_10">
+      <property name="geometry">
+       <rect>
+        <x>10</x>
+        <y>100</y>
+        <width>101</width>
+        <height>20</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string>Output Type:</string>
+      </property>
+     </widget>
+     <widget class="QLabel" name="label_11">
+      <property name="geometry">
+       <rect>
+        <x>10</x>
+        <y>200</y>
+        <width>131</width>
+        <height>20</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string>Output Destination:</string>
+      </property>
+     </widget>
+     <widget class="QLabel" name="lblOutputPath">
+      <property name="geometry">
+       <rect>
+        <x>30</x>
+        <y>230</y>
+        <width>311</width>
+        <height>20</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string>/path/to/output/</string>
+      </property>
+     </widget>
+    </widget>
+   </widget>
+  </widget>
+ </widget>
+ <resources/>
+ <connections/>
+</ui>

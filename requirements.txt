@@ -1,0 +1,7 @@
+fairqt>=1.0.0
+youtube-dl
+pytube
+pyqt6==6.3.1
+pyqt6-sip==13.4.0
+pyqt6-qt6==6.3.1
+ffmpeg>=1.4

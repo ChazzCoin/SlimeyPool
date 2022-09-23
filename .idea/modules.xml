@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ProjectModuleManager">
+    <modules>
+      <module fileurl="file://$PROJECT_DIR$/../FairSystems/FairCore/.idea/FCoRE.iml" filepath="$PROJECT_DIR$/../FairSystems/FairCore/.idea/FCoRE.iml" />
+      <module fileurl="file://$PROJECT_DIR$/../FairSystems/FairQt/.idea/FairQt.iml" filepath="$PROJECT_DIR$/../FairSystems/FairQt/.idea/FairQt.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/YoutubeToMPThree.iml" filepath="$PROJECT_DIR$/.idea/YoutubeToMPThree.iml" />
+    </modules>
+  </component>
+</project>

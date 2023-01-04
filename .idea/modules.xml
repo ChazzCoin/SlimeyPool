@@ -4,6 +4,7 @@
     <modules>
       <module fileurl="file://$PROJECT_DIR$/../FairSystems/FairCore/.idea/FCoRE.iml" filepath="$PROJECT_DIR$/../FairSystems/FairCore/.idea/FCoRE.iml" />
       <module fileurl="file://$PROJECT_DIR$/../FairSystems/FairQt/.idea/FairQt.iml" filepath="$PROJECT_DIR$/../FairSystems/FairQt/.idea/FairQt.iml" />
+      <module fileurl="file://$PROJECT_DIR$/../FairSystems/FairWeb/.idea/FairWeb.iml" filepath="$PROJECT_DIR$/../FairSystems/FairWeb/.idea/FairWeb.iml" />
       <module fileurl="file://$PROJECT_DIR$/.idea/YoutubeToMPThree.iml" filepath="$PROJECT_DIR$/.idea/YoutubeToMPThree.iml" />
     </modules>
   </component>

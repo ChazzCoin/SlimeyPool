@@ -8,8 +8,9 @@ from FQt import FairUI
 from F import OS, RE, DICT
 from F.CLASS import Thread
 import os
-import youtube_dl
-from pytube import YouTube
+# import youtube_dl
+# from pytube import YouTube
+from FW.Core.CoreDownloaders import MediaDownloaders
 
 uiFile = OS.get_cwd() + "/SlimeManager.ui"
 
@@ -32,40 +33,11 @@ def post_process(fileIn, fileOutName):
     return output
 
 def YoutubeDownloader(url):
-    try:
-        ytObj = YouTube(url)
-        video = ytObj.streams.filter(only_video=True).first()
-        destination = 'completed'
-        out_file = video.download(output_path=destination)
-        base, ext = os.path.splitext(out_file)
-        mp4File = base + '.mp4'
-        newMp4File = str(mp4File).replace(" ", "-")
-        OS.rename_file(mp4File, newMp4File)
-        post_processor()
-        return mp4File, url
-    except:
-        return None
+    from FW.Core.CoreDownloaders import MediaDownloaders
+    return MediaDownloaders.YoutubeDownloader(url)
 
 def GeneralDownloader(url):
-
-    ydl_opts = {
-        'format': 'bestaudio/best',
-        'postprocessors': [{
-            'key': 'FFmpegExtractAudio',
-            'preferredcodec': 'mp3',
-            'preferredquality': '192',
-        }],
-    }
-    if type(url) not in [list]:
-        url = [url]
-    try:
-        with youtube_dl.YoutubeDL(ydl_opts) as ydl:
-            ydl.download(url)
-        return True, url
-    except:
-        return False, url
-
-
+    return MediaDownloaders.GeneralDownloader(url)
 
 class SlimeManager(FairUI):
     # SlimeManager
@@ -97,6 +69,16 @@ class SlimeManager(FairUI):
         self.do_refresh()
         self.refresh_convert_directory()
         self.show()
+
+    def onClick_btnYoutubeDownloader(self, item):
+        url = self.editAddUrl.text()
+        self.urls_cached.append(url)
+        Thread.runFuncInBackground(YoutubeDownloader, arguments=url, callback=self.CallbackYoutube)
+
+    def onClick_btnGeneralDownloader(self, item):
+        url = self.editAddUrl.text()
+        self.urls_in_general.append(url)
+        Thread.runFuncInBackground(GeneralDownloader, arguments=url, callback=self.CallbackGeneral)
 
     def onClick_btnAddUrlToQueue(self, item):
         url = self.editAddUrl.text()
@@ -205,11 +187,15 @@ class SlimeManager(FairUI):
             self._set_finalDirectory()
             for file in OS.get_files_in_directory(completed_DIRECTORY):
                 if str(file).endswith(".mp3"):
-                    OS.move_file(f"{completed_DIRECTORY}/{file}", self.finalDirectory)
+                    try:
+                        if not OS.move_file(f"{completed_DIRECTORY}/{file}", self.finalDirectory):
+                            print("Need to move this file to a failed folder.")
+                    except Exception as e:
+                        print("Failed to move file", e)
             self.urls_in_general = []
             self.do_refresh()
         except:
-            print("Failed to move file.")
+            print("Failed to move files.")
 
     def onClick_btnRefreshFolders(self):
         self.do_refresh()

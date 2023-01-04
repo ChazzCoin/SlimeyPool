@@ -8,5 +8,6 @@
     <orderEntry type="sourceFolder" forTests="false" />
     <orderEntry type="module" module-name="FairQt" />
     <orderEntry type="module" module-name="FCoRE" />
+    <orderEntry type="module" module-name="FairWeb" />
   </component>
 </module>

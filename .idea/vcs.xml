@@ -3,6 +3,7 @@
   <component name="VcsDirectoryMappings">
     <mapping directory="$PROJECT_DIR$/../FairSystems/FairCore" vcs="Git" />
     <mapping directory="$PROJECT_DIR$/../FairSystems/FairQt" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/../FairSystems/FairWeb" vcs="Git" />
     <mapping directory="$PROJECT_DIR$" vcs="Git" />
   </component>
 </project>

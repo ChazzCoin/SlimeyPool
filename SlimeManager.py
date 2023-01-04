@@ -17,6 +17,7 @@ uiFile = OS.get_cwd() + "/SlimeManager.ui"
 cw_DIRECTORY = OS.get_cwd()
 downloaded_FILE = lambda fileName: f"{cw_DIRECTORY}/{fileName}"
 completed_DIRECTORY = f"{cw_DIRECTORY}/completed"
+failed_DIRECTORY = f"{cw_DIRECTORY}/failed"
 
 def post_processor():
     for file in OS.get_files_in_directory(completed_DIRECTORY):
@@ -190,6 +191,7 @@ class SlimeManager(FairUI):
                     try:
                         if not OS.move_file(f"{completed_DIRECTORY}/{file}", self.finalDirectory):
                             print("Need to move this file to a failed folder.")
+                            OS.move_file(f"{completed_DIRECTORY}/{file}", failed_DIRECTORY)
                     except Exception as e:
                         print("Failed to move file", e)
             self.urls_in_general = []

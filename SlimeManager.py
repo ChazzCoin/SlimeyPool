@@ -3,14 +3,15 @@ from __future__ import unicode_literals
 
 import subprocess
 
-from PyQt6 import QtWidgets, QtCore
+from PyQt6 import QtWidgets
 from FQt import FairUI
 from F import OS, RE, DICT
 from F.CLASS import Thread
 import os
+from SlimeManager import Downloaders
 # import youtube_dl
 # from pytube import YouTube
-from FW.Core.CoreDownloaders import MediaDownloaders
+# from FW.Core.CoreDownloaders import MediaDownloaders
 
 uiFile = OS.get_cwd() + "/SlimeManager.ui"
 
@@ -34,11 +35,10 @@ def post_process(fileIn, fileOutName):
     return output
 
 def YoutubeDownloader(url):
-    from FW.Core.CoreDownloaders import MediaDownloaders
-    return MediaDownloaders.YoutubeDownloader(url)
+    return Downloaders.YoutubeDownloader(url)
 
 def GeneralDownloader(url):
-    return MediaDownloaders.GeneralDownloader(url)
+    return Downloaders.GeneralDownloader(url)
 
 class SlimeManager(FairUI):
     # SlimeManager
@@ -194,6 +194,8 @@ class SlimeManager(FairUI):
                             OS.move_file(f"{completed_DIRECTORY}/{file}", failed_DIRECTORY)
                     except Exception as e:
                         print("Failed to move file", e)
+                else:
+                    Downloaders.post_processor()
             self.urls_in_general = []
             self.do_refresh()
         except:

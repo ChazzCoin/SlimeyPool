@@ -187,15 +187,13 @@ class SlimeManager(FairUI):
         try:
             self._set_finalDirectory()
             for file in OS.get_files_in_directory(completed_DIRECTORY):
-                if str(file).endswith(".mp3"):
+                if str(file).endswith(".mp3") or str(file).endswith(".mp4"):
                     try:
                         if not OS.move_file(f"{completed_DIRECTORY}/{file}", self.finalDirectory):
                             print("Need to move this file to a failed folder.")
                             OS.move_file(f"{completed_DIRECTORY}/{file}", failed_DIRECTORY)
                     except Exception as e:
                         print("Failed to move file", e)
-                else:
-                    Downloaders.post_processor()
             self.urls_in_general = []
             self.do_refresh()
         except:

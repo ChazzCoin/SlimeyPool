@@ -14,6 +14,7 @@ def post_processor():
             newFile = f"{newFile}-rs"
             file = f"{completedFolder}/{file}"
             post_process(file, newFile)
+            OS.remove(file)
 
 
 def post_process(fileIn, fileOutName):

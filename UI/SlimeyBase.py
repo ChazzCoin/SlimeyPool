@@ -7,9 +7,6 @@ from UI.Variables import SlimeyPoolVariables
 from completed import completed_DIRECTORY
 
 cw_DIRECTORY = OS.get_cwd()
-# downloaded_FILE = lambda fileName: f"{cw_DIRECTORY}/{fileName}"
-# completed_DIRECTORY = f"{cw_DIRECTORY}/completed"
-# failed_DIRECTORY = f"{cw_DIRECTORY}/failed"
 cwd = OS.get_cwd()
 uiFile = cwd + "/SlimeManager.ui"
 

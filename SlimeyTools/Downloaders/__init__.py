@@ -1,7 +1,7 @@
 from __future__ import unicode_literals
 import os
 import subprocess
-from SlimeManager import FFMPEG
+from SlimeyTools import FFMPEG
 import youtube_dl
 from pytube import YouTube
 from F import OS

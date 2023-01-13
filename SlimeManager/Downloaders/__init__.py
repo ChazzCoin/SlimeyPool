@@ -17,10 +17,8 @@ def post_processor():
             OS.remove(file)
 
 
-def post_process(fileIn, fileOutName):
-    fileNameOut = f"{OS.get_cwd()}/completed/{fileOutName}.mp3"
-    output = subprocess.run(f"ffmpeg -i {fileIn} -b:a 192k {fileNameOut}", shell=True)
-    return output
+def post_process(fileIn, fileOutName=None):
+    return FFMPEG.to_mp3(fileIn, removeOriginal=True)
 
 def YoutubeDownloader(url):
     try:
@@ -30,7 +28,7 @@ def YoutubeDownloader(url):
         out_file = video.download(output_path=destination)
         base, ext = os.path.splitext(out_file)
         mp4File = base + '.mp4'
-        FFMPEG.to_mp3(mp4File)
+        post_process(mp4File)
         newMp4File = str(mp4File).replace(" ", "-")
         OS.rename_file(mp4File, newMp4File)
         return mp4File, url

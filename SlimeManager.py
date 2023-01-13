@@ -5,7 +5,7 @@ import subprocess
 
 from PyQt6 import QtWidgets
 from FQt import FairUI
-from F import OS, RE, DICT
+from F import OS, RE, DICT, FFMPEG
 from F.CLASS import Thread
 import os
 from SlimeManager import Downloaders
@@ -30,9 +30,7 @@ def post_processor():
             os.remove(file)
 
 def post_process(fileIn, fileOutName):
-    fileNameOut = f"{OS.get_cwd()}/completed/{fileOutName}.mp3"
-    output = subprocess.run(f"ffmpeg -i {fileIn} -b:a 192k {fileNameOut}", shell=True)
-    return output
+    return FFMPEG.to_mp3(fileIn, removeOriginal=True)
 
 def YoutubeDownloader(url):
     return Downloaders.YoutubeDownloader(url)

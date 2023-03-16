@@ -62,10 +62,11 @@ class SlimeyBase(FQtBaseApp, SlimeyPoolVariables):
             self.listUrlDownloaded.addItem(file)
 
     def refresh_convert_directory(self, path=completed_DIRECTORY):
-        self.listConvertExploreFiles.clear()
-        self.currentConvertDirectory = path
-        for file in OS.get_files_in_directory(path):
-            self.listConvertExploreFiles.addItem(file)
+        pass
+        # self.listConvertExploreFiles.clear()
+        # self.currentConvertDirectory = path
+        # for file in OS.get_files_in_directory(path):
+        #     self.listConvertExploreFiles.addItem(file)
 
 
 

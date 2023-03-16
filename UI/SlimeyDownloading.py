@@ -1,12 +1,31 @@
+import json
+
 from PyQt6 import QtWidgets
 
 from F import RE
 from F.CLASS import Thread
 from UI.SlimeyOnClicks import SlimeyOnClicks
 from SlimeyTools import Downloaders as dl
+from SlimeyTools import YoutubeSearch
 
 class SlimeyDownloading(SlimeyOnClicks):
 
+    """ Search YouTube """
+    def onClick_btnSearchYoutube(self, item):
+        self.listSearchResults.clear()
+        searchTerm = self.editSearchYoutube.text()
+        results = YoutubeSearch.search_youtube(searchTerm)
+        for item in results:
+            self.listSearchResults.addItem(str(item))
+
+    def onDoubleClick_listSearchResults(self, item: QtWidgets.QListWidgetItem):
+        selection = item.text().replace("'", "\"")
+        selection_dict = json.loads(selection)
+        url = selection_dict['link']
+        Thread.runFuncInBackground(dl.YoutubeDownloader, arguments=url, callback=self.CallbackYoutube)
+        self.listSearchResults.clear()
+
+    """ Downloader """
     def onClick_btnYoutubeDownloader(self, item):
         url = self.editAddUrl.text()
         self.urls_cached.append(url)

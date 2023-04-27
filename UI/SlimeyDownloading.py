@@ -18,12 +18,21 @@ class SlimeyDownloading(SlimeyOnClicks):
         for item in results:
             self.listSearchResults.addItem(str(item))
 
-    def onDoubleClick_listSearchResults(self, item: QtWidgets.QListWidgetItem):
-        selection = item.text().replace("'", "\"")
-        selection_dict = json.loads(selection)
+    def onDoubleClick_listSearchResults(self, item):
+        selection_dict = self.parse_string_to_dict(item.text())
+        print(selection_dict)
         url = selection_dict['link']
         Thread.runFuncInBackground(dl.YoutubeDownloader, arguments=url, callback=self.CallbackYoutube)
         self.listSearchResults.clear()
+
+    def parse_string_to_dict(self, input_str):
+        import ast
+        try:
+            parsed_dict = ast.literal_eval(input_str)
+            return parsed_dict
+        except (SyntaxError, ValueError):
+            print("Error: Unable to parse the given string.")
+            return None
 
     """ Downloader """
     def onClick_btnYoutubeDownloader(self, item):
